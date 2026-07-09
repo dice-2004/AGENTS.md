@@ -11,7 +11,7 @@
 - **This file must not be modified by the AI itself**: The content of this file (e.g. [state the file name. Example: AGENTS.md]) must not be changed by the AI without explicit instruction from the user. If you notice a contradiction or a possible improvement in the rules, propose it to the user rather than editing it directly.
 
 ### 1.1 Language and Communication
-- **Working language**: All communication (responses, plans, in-code explanations, etc.) is conducted in principle in **[state the working language. Example: English]**.
+- **Working language**: All communication (responses, plans, in-code explanations, etc.) is conducted in principle in Japanese.
 - **Spec-first development**: Before implementing a new component or algorithm, always create a specification and get agreement before starting work.
 - **Confirmation and questions**: If an unclear specification or design decision arises, do not proceed unilaterally — always ask the user for confirmation.
 - **Pre-change confirmation flow (Important)**:
