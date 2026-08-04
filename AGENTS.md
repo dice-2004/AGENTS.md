@@ -23,7 +23,7 @@
   - **Examples not requiring approval (may be done autonomously)**: [Describe minor work that can be done autonomously. Example: bug fixes within existing functions, adding comments, unifying naming conventions, adding test code]
   - **Examples requiring approval**: [Describe design changes requiring approval. Example: creating new files/modules, adding external packages, changing existing public interfaces (API/function signatures), changes to infrastructure/config files]
   - **Scope limitation**: Do not make changes to unrelated files or code beyond the scope of the requested work. If you notice an improvement opportunity outside the requested scope while working, do not change it directly on the spot — report it to the user as a suggestion instead.
-- *Adding skills*: You can suggest skills to add using find-skills. When pitching to your users, be sure to clearly explain what skills you're adding, why they're needed, and how they'll use them.
+- **Adding skills**: You can suggest skills to add using find-skills. When pitching to your users, be sure to clearly explain what skills you're adding, why they're needed, and how they'll use them.
 
 ### 1.2 Code Quality
 - **Readability and best practices**: Follow naming conventions, apply appropriate type hints, and follow the best practices of [state the language used. Example: Python] (e.g. [state the best-practice standard. Example: PEP 8]).
@@ -45,7 +45,7 @@
 - **Re-checking mid-task**: When starting work on a specific module or feature, re-check the corresponding specification/detailed documentation each time — regardless of whether you already read it earlier in this session. Do not skip a detailed spec check just because you believe "I already read this" — in long sessions, previously read content may have been lost from context.
 
 ### 1.4 Periodic Quality Review (Important)
-*Skills to use*: It is a good idea to review using "grill-me".
+**Skills to use**: It is a good idea to review using "grill-me".
 - **Flagging uncertainty**: For matters you are not confident about — spec behavior, API behavior, external information, etc. — avoid making definitive statements. Explicitly flag your uncertainty and ask the user to confirm. Do not state a guess as if it were a confirmed fact.
 - **Conducting self-review**: Every few rounds of conversation (guideline: [state the review frequency in turns. Example: every 3-5 exchanges]), look back over the work done so far and perform a quality review.
 - **Review method**: The specific self-review method is not fixed (using a sub-agent, writing to a separate file, re-reading code, etc. are all fine), but always check the following:
