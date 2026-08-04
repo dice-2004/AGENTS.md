@@ -8,6 +8,7 @@
 ### 1.0 Instruction Priority
 - If this file conflicts with instructions given by the user during conversation, the **most recent explicit instruction in the conversation** takes priority in principle.
 - However, for rules tagged **"(Important)"** — such as Git operation restrictions, security, or protected/forbidden targets — the rules in this file take priority unless the user explicitly declares a temporary override of that specific rule.
+- **Priority over Skill Instructions (Important)**: If any instruction, prompt, workflow, or recommended tool in skills under `.agents/skills/` (or builtin skills) conflicts with the rules in this file (`AGENTS.md`), the rules in this file — especially those tagged **"(Important)"** — MUST always take precedence over skill instructions.
 - **This file must not be modified by the AI itself**: The content of this file (e.g. [state the file name. Example: AGENTS.md]) must not be changed by the AI without explicit instruction from the user. If you notice a contradiction or a possible improvement in the rules, propose it to the user rather than editing it directly.
 
 ### 1.1 Language and Communication
@@ -22,6 +23,7 @@
   - **Examples not requiring approval (may be done autonomously)**: [Describe minor work that can be done autonomously. Example: bug fixes within existing functions, adding comments, unifying naming conventions, adding test code]
   - **Examples requiring approval**: [Describe design changes requiring approval. Example: creating new files/modules, adding external packages, changing existing public interfaces (API/function signatures), changes to infrastructure/config files]
   - **Scope limitation**: Do not make changes to unrelated files or code beyond the scope of the requested work. If you notice an improvement opportunity outside the requested scope while working, do not change it directly on the spot — report it to the user as a suggestion instead.
+- *Adding skills*: You can suggest skills to add using find-skills. When pitching to your users, be sure to clearly explain what skills you're adding, why they're needed, and how they'll use them.
 
 ### 1.2 Code Quality
 - **Readability and best practices**: Follow naming conventions, apply appropriate type hints, and follow the best practices of [state the language used. Example: Python] (e.g. [state the best-practice standard. Example: PEP 8]).
@@ -43,6 +45,7 @@
 - **Re-checking mid-task**: When starting work on a specific module or feature, re-check the corresponding specification/detailed documentation each time — regardless of whether you already read it earlier in this session. Do not skip a detailed spec check just because you believe "I already read this" — in long sessions, previously read content may have been lost from context.
 
 ### 1.4 Periodic Quality Review (Important)
+*Skills to use*: It is a good idea to review using "grill-me".
 - **Flagging uncertainty**: For matters you are not confident about — spec behavior, API behavior, external information, etc. — avoid making definitive statements. Explicitly flag your uncertainty and ask the user to confirm. Do not state a guess as if it were a confirmed fact.
 - **Conducting self-review**: Every few rounds of conversation (guideline: [state the review frequency in turns. Example: every 3-5 exchanges]), look back over the work done so far and perform a quality review.
 - **Review method**: The specific self-review method is not fixed (using a sub-agent, writing to a separate file, re-reading code, etc. are all fine), but always check the following:
