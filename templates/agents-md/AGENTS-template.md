@@ -21,7 +21,7 @@ How to use (delete this comment from the finished file)
 - Test: `[e.g. npm test]` (single file: `[e.g. npm test -- path/to/file]`)
 - Lint and format: `[e.g. npm run lint]`
 - Type check: `[e.g. npm run typecheck]`
-- [If the execution environment is fixed. e.g. Locally, run commands inside the Dev Container (check that you are inside by the `REMOTE_CONTAINERS` environment variable). If you are outside, report it instead of running them. In cloud runs, run them in that environment as is.]
+- [If the execution environment is fixed. e.g. Locally, run commands inside the Dev Container (check that you are inside by the presence of the file `/.dockerenv`). If you are outside, report it instead of running them. In cloud runs, run them in that environment as is.]
 
 ## Layout
 - `[e.g. src/api/]`: [role]
