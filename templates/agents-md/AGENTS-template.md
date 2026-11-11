@@ -7,6 +7,7 @@ How to use (delete this comment from the finished file)
 - Keep text outside [ ] as written, as long as it applies to the target.
 - After filling in, stay under 200 lines and 32 KiB. Put procedures and detailed specs under docs/ and write only their location here.
 - Write rules as checkable actions. Example: not "test carefully" but "run npm test before committing".
+- When there are several stacks (such as frontend and backend), list the commands per stack. For something that does not exist yet (such as tests), keep the line and write "not set up yet" (so the AI does not search for a command that does not exist).
 - For rules that must never be broken (secret files, no push, etc.), also block them with permission settings or hooks, not only with text here.
 -->
 
@@ -25,6 +26,11 @@ How to use (delete this comment from the finished file)
 ## Layout
 - `[e.g. src/api/]`: [role]
 - `[e.g. docs/]`: [specs to read before working]
+- `[e.g. docs/context.md]`: [background, terms, and design decisions. Read before work that touches design.]
+- [Outdated documents not to rely on, if any. e.g. The layout diagram in `README.md` is outdated; do not rely on it.]
+
+## Policies
+- [Decisions that fit in a few lines. e.g. Do not add a state management library. Move them to `docs/context.md` if they grow.]
 
 ## How to work
 - Write replies, comments, and commit messages in [Japanese].
@@ -32,7 +38,7 @@ How to use (delete this comment from the finished file)
 - Ask before doing: [e.g. implementing a new feature that has no spec, adding files or modules, adding external packages, changing public interfaces, changing configuration or infrastructure]. When asking, explain which part of which file you will change, why, and how.
 - Do without asking: [e.g. bug fixes inside existing functions, adding tests, fixing comments and names]. This includes fixing bugs caused by your own change that you find while verifying it.
 - If the same error is not fixed after [3] attempts, stop and report what you tried, the error log, and the current state.
-- Do not change files outside the scope of the request. Report improvements you notice as proposals.
+- Do not change files outside the scope of the request (updates to the files listed under "Records" are excepted). Report improvements you notice as proposals.
 - When you are not sure about a spec or the behavior of an external API, say so and ask for confirmation instead of asserting it.
 - [CHOOSE ONE] Unclear requirements
   - A: Do not fill gaps with assumptions. Collect them as questions.
@@ -45,12 +51,14 @@ How to use (delete this comment from the finished file)
 - If a code change alters the spec (inputs, outputs, design), update the spec in the same change.
 - [Language and conventions. e.g. Python follows PEP 8 with required type hints. Formatter is Black.]
 - [Project-specific technical rules. e.g. Access the database only through `src/db/`.]
+- [Verification that commands cannot cover. e.g. After changing the UI, render the screen, check how it looks, and report which screens you checked and the result.]
+- [Rules about correctness of content. e.g. For facts about the person (career, achievements), write only what was provided and do not fill gaps by guessing.]
 - [Production constraints. e.g. No local absolute paths. No external network access.]
 
 ## Git
 [CHOOSE ONE]
 - A: Do not run Git operations that change the repository (commit, push, pull). Ask the user to run them.
-- B: You may commit to the working branch. Push and open a PR only when the request includes it; otherwise ask first. Never push directly to `[main]`, force push, or rewrite history.
+- B: You may commit to the working branch. In runs where a working branch is designated (such as cloud tasks), you may also push to that branch (changes that are not pushed are lost). Otherwise, push and open a PR only when the request includes it, and ask first if it does not. Never push directly to `[main]`, force push, or rewrite history.
 - C: In runs that deliver work as a branch and a PR (such as cloud tasks, or when the request names a PR or branch), follow B. Otherwise (local interactive sessions), follow A.
 - [Commit message or branch naming conventions, if any]
 
@@ -62,8 +70,10 @@ How to use (delete this comment from the finished file)
 - Before deleting files, stopping or restarting services, making destructive database changes (migrations, deleting records), or operating on [production or shared environments], explain the operation and get approval. Where possible, show a dry-run result first.
 
 ## Records
-- [If you keep a work log. e.g. Read `log/<module>.md` when you start. Append what you did, why, and the verification result when a subtask is done, when a decision is made, and before you finish.]
-- When an error occurs, check `[e.g. docs/troubleshooting.md]` first. If you solve a problem that is not listed, append its cause and fix.
+- [If you keep a progress record. e.g. Read `docs/progress.md` when you start. Update the current state, decisions, and verification results when a subtask is done, when a decision is made, and before you finish.]
+- [If you keep a context file. e.g. Update `docs/context.md` when a design rule changes, and when you learn a lasting fact (a quirk of an external API, an approach that was tried and failed).]
+- [If you keep a troubleshooting file. e.g. When an error occurs, check `docs/troubleshooting.md` first. If you solve a problem that is not listed, append its cause and fix.]
+- Include updates to record files in the same commit and PR as the work. When you are not allowed to run Git operations, write the updated content in your report (in cloud runs, uncommitted changes are lost).
 
 ## Reporting
 Report completion in this order.
