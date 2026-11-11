@@ -25,6 +25,7 @@ How to use (delete this comment from the finished file)
 ## Layout
 - `[e.g. src/api/]`: [role]
 - `[e.g. docs/]`: [specs to read before working]
+- `[e.g. docs/context.md]`: [background, terms, and design decisions. Read before work that touches design.]
 
 ## How to work
 - Write replies, comments, and commit messages in [Japanese].
@@ -62,7 +63,7 @@ How to use (delete this comment from the finished file)
 - Before deleting files, stopping or restarting services, making destructive database changes (migrations, deleting records), or operating on [production or shared environments], explain the operation and get approval. Where possible, show a dry-run result first.
 
 ## Records
-- [If you keep a work log. e.g. Read `log/<module>.md` when you start. Append what you did, why, and the verification result when a subtask is done, when a decision is made, and before you finish.]
+- [If you keep a progress record. e.g. Read `docs/progress.md` when you start. Update the current state, decisions, and verification results when a subtask is done, when a decision is made, and before you finish.]
 - When an error occurs, check `[e.g. docs/troubleshooting.md]` first. If you solve a problem that is not listed, append its cause and fix.
 
 ## Reporting
