@@ -7,6 +7,7 @@ How to use (delete this comment from the finished file)
 - Keep text outside [ ] as written, as long as it applies to the target.
 - After filling in, stay under 200 lines and 32 KiB. Put procedures and detailed specs under docs/ and write only their location here.
 - Write rules as checkable actions. Example: not "test carefully" but "run npm test before committing".
+- When there are several stacks (such as frontend and backend), list the commands per stack. For something that does not exist yet (such as tests), keep the line and write "not set up yet" (so the AI does not search for a command that does not exist).
 - For rules that must never be broken (secret files, no push, etc.), also block them with permission settings or hooks, not only with text here.
 -->
 
@@ -26,6 +27,10 @@ How to use (delete this comment from the finished file)
 - `[e.g. src/api/]`: [role]
 - `[e.g. docs/]`: [specs to read before working]
 - `[e.g. docs/context.md]`: [background, terms, and design decisions. Read before work that touches design.]
+- [Outdated documents not to rely on, if any. e.g. The layout diagram in `README.md` is outdated; do not rely on it.]
+
+## Policies
+- [Decisions that fit in a few lines. e.g. Do not add a state management library. Move them to `docs/context.md` if they grow.]
 
 ## How to work
 - Write replies, comments, and commit messages in [Japanese].
@@ -46,12 +51,14 @@ How to use (delete this comment from the finished file)
 - If a code change alters the spec (inputs, outputs, design), update the spec in the same change.
 - [Language and conventions. e.g. Python follows PEP 8 with required type hints. Formatter is Black.]
 - [Project-specific technical rules. e.g. Access the database only through `src/db/`.]
+- [Verification that commands cannot cover. e.g. After changing the UI, render the screen, check how it looks, and report which screens you checked and the result.]
+- [Rules about correctness of content. e.g. For facts about the person (career, achievements), write only what was provided and do not fill gaps by guessing.]
 - [Production constraints. e.g. No local absolute paths. No external network access.]
 
 ## Git
 [CHOOSE ONE]
 - A: Do not run Git operations that change the repository (commit, push, pull). Ask the user to run them.
-- B: You may commit to the working branch. Push and open a PR only when the request includes it; otherwise ask first. Never push directly to `[main]`, force push, or rewrite history.
+- B: You may commit to the working branch. In runs where a working branch is designated (such as cloud tasks), you may also push to that branch (changes that are not pushed are lost). Otherwise, push and open a PR only when the request includes it, and ask first if it does not. Never push directly to `[main]`, force push, or rewrite history.
 - C: In runs that deliver work as a branch and a PR (such as cloud tasks, or when the request names a PR or branch), follow B. Otherwise (local interactive sessions), follow A.
 - [Commit message or branch naming conventions, if any]
 
