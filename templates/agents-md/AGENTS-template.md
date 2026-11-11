@@ -33,7 +33,7 @@ How to use (delete this comment from the finished file)
 - Ask before doing: [e.g. implementing a new feature that has no spec, adding files or modules, adding external packages, changing public interfaces, changing configuration or infrastructure]. When asking, explain which part of which file you will change, why, and how.
 - Do without asking: [e.g. bug fixes inside existing functions, adding tests, fixing comments and names]. This includes fixing bugs caused by your own change that you find while verifying it.
 - If the same error is not fixed after [3] attempts, stop and report what you tried, the error log, and the current state.
-- Do not change files outside the scope of the request. Report improvements you notice as proposals.
+- Do not change files outside the scope of the request (updates to the files listed under "Records" are excepted). Report improvements you notice as proposals.
 - When you are not sure about a spec or the behavior of an external API, say so and ask for confirmation instead of asserting it.
 - [CHOOSE ONE] Unclear requirements
   - A: Do not fill gaps with assumptions. Collect them as questions.
@@ -64,7 +64,9 @@ How to use (delete this comment from the finished file)
 
 ## Records
 - [If you keep a progress record. e.g. Read `docs/progress.md` when you start. Update the current state, decisions, and verification results when a subtask is done, when a decision is made, and before you finish.]
-- When an error occurs, check `[e.g. docs/troubleshooting.md]` first. If you solve a problem that is not listed, append its cause and fix.
+- [If you keep a context file. e.g. Update `docs/context.md` when a design rule changes, and when you learn a lasting fact (a quirk of an external API, an approach that was tried and failed).]
+- [If you keep a troubleshooting file. e.g. When an error occurs, check `docs/troubleshooting.md` first. If you solve a problem that is not listed, append its cause and fix.]
+- Include updates to record files in the same commit and PR as the work. When you are not allowed to run Git operations, write the updated content in your report (in cloud runs, uncommitted changes are lost).
 
 ## Reporting
 Report completion in this order.
