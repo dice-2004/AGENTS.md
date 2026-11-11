@@ -5,7 +5,7 @@ How to use (delete this comment from the finished file)
 - Fill in every [ ]. Delete lines and sections that do not apply (do not leave blanks or "N/A").
 - For [CHOOSE ONE], keep exactly one of the listed options (A, B, C) and delete the "[CHOOSE ONE]" line and the letters.
 - Keep text outside [ ] as written, as long as it applies to the target.
-- After filling in, stay under 200 lines and 32 KiB. Put procedures and detailed specs under docs/ and write only their location here.
+- After filling in, stay under 200 lines (the per-file guideline Claude Code gives). Codex stops reading once the combined size of the AGENTS.md files it loads exceeds 32 KiB (files under `~/.codex/` and in subdirectories count toward the total). Put procedures and detailed specs under docs/ and write only their location here.
 - Write rules as checkable actions. Example: not "test carefully" but "run npm test before committing".
 - When there are several stacks (such as frontend and backend), list the commands per stack. For something that does not exist yet (such as tests), keep the line and write "not set up yet" (so the AI does not search for a command that does not exist).
 - For rules that must never be broken (secret files, no push, etc.), also block them with permission settings or hooks, not only with text here.
@@ -21,7 +21,7 @@ How to use (delete this comment from the finished file)
 - Test: `[e.g. npm test]` (single file: `[e.g. npm test -- path/to/file]`)
 - Lint and format: `[e.g. npm run lint]`
 - Type check: `[e.g. npm run typecheck]`
-- Run commands inside [e.g. the Dev Container]. If you find you are outside that environment, report it instead of running them.
+- [If the execution environment is fixed. e.g. Locally, run commands inside the Dev Container (check that you are inside by the `REMOTE_CONTAINERS` environment variable). If you are outside, report it instead of running them. In cloud runs, run them in that environment as is.]
 
 ## Layout
 - `[e.g. src/api/]`: [role]
@@ -35,15 +35,15 @@ How to use (delete this comment from the finished file)
 ## How to work
 - Write replies, comments, and commit messages in [Japanese].
 - When you start work on a module, read its spec (`[e.g. docs/spec/]`) if you have not read it in this session. Read it again after the conversation has been summarized or compacted.
-- Ask before doing: [e.g. implementing a new feature that has no spec, adding files or modules, adding external packages, changing public interfaces, changing configuration or infrastructure]. When asking, explain which part of which file you will change, why, and how.
+- Ask before doing: [e.g. implementing a new feature that has no spec, adding files or modules, adding external packages, changing public interfaces, changing configuration or infrastructure]. Operations the request explicitly names need no confirmation. When asking, explain which part of which file you will change, why, and how.
 - Do without asking: [e.g. bug fixes inside existing functions, adding tests, fixing comments and names]. This includes fixing bugs caused by your own change that you find while verifying it.
 - If the same error is not fixed after [3] attempts, stop and report what you tried, the error log, and the current state.
-- Do not change files outside the scope of the request (updates to the files listed under "Records" are excepted). Report improvements you notice as proposals.
+- Do not change files outside the scope of the request (updates to the files listed under "Records" and the spec updates required under "Quality and verification" are excepted). Report improvements you notice as proposals.
 - When you are not sure about a spec or the behavior of an external API, say so and ask for confirmation instead of asserting it.
 - [CHOOSE ONE] Unclear requirements
   - A: Do not fill gaps with assumptions. Collect them as questions.
   - B: For work that can be undone, proceed on an assumption and report the assumption.
-- In runs where you cannot ask the user midway (such as cloud tasks), do not perform operations that need confirmation. List them as "proposed, not done" in the report or the PR description. When you reach the attempt limit, leave your changes on the branch and report the state.
+- In runs where you cannot ask the user midway (such as cloud tasks), do not perform operations that need confirmation. List them as "proposed, not done" in the report or the PR description. When you reach the attempt limit, leave your changes on the branch if the "Git" section allows it; if it does not, describe the changes in your report. Then report the state.
 
 ## Quality and verification
 - Before reporting completion, pass the test, lint, and type check commands above. Do not report completion while they fail. Do not use skip options (`[e.g. --no-verify]`).
@@ -59,7 +59,7 @@ How to use (delete this comment from the finished file)
 [CHOOSE ONE]
 - A: Do not run Git operations that change the repository (commit, push, pull). Ask the user to run them.
 - B: You may commit to the working branch. In runs where a working branch is designated (such as cloud tasks), you may also push to that branch (changes that are not pushed are lost). Otherwise, push and open a PR only when the request includes it, and ask first if it does not. Never push directly to `[main]`, force push, or rewrite history.
-- C: In runs that deliver work as a branch and a PR (such as cloud tasks, or when the request names a PR or branch), follow B. Otherwise (local interactive sessions), follow A.
+- C: In runs that deliver work as a branch and a PR (such as cloud tasks, or when the request names a PR or branch), you may commit and push to the designated working branch. Open a PR only when the request includes it. Never push directly to `[main]`, force push, or rewrite history. Otherwise (local interactive sessions), do not run Git operations that change the repository; ask the user to run them.
 - [Commit message or branch naming conventions, if any]
 
 ## Protected items
@@ -67,6 +67,7 @@ How to use (delete this comment from the finished file)
 - Never change: [e.g. `vendor/`, existing files under `migrations/`]
 - Change only with agreement: [e.g. shared module `src/core/`]
 - Never write API keys, tokens, or passwords in code, commits, logs, or chat. Read secrets from [e.g. environment variables].
+- Never read or output: [e.g. `.env`, `secrets/`]
 - Before deleting files, stopping or restarting services, making destructive database changes (migrations, deleting records), or operating on [production or shared environments], explain the operation and get approval. Where possible, show a dry-run result first.
 
 ## Records
@@ -84,5 +85,5 @@ Report completion in this order.
 
 ## Instruction priority
 - When this file conflicts with an instruction in the conversation, follow the most recent explicit instruction in the conversation. The "Git" and "Protected items" sections are lifted only when the user explicitly suspends that rule.
-- When the user's global settings (such as personal instructions) conflict with this file, this file takes priority for this repository.
+- When the user's global settings (such as claude.ai personal instructions or project instructions) conflict with this file, this file takes priority for this repository.
 - When a skill's instructions conflict with this file, this file takes priority.

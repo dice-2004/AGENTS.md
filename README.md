@@ -23,6 +23,10 @@ AI エージェントを制御する指示のテンプレートを置くリポ�
 | `progress-template.md` | 進捗・未決事項・決定の履歴・検証の記録 | 対象リポジトリの `docs/progress.md` |
 | `troubleshooting-template.md` | よく起きる問題と対処 | 対象リポジトリの `docs/troubleshooting.md` |
 
+## 権限設定・フック
+
+テンプレートは未整備です。必要な対象では、使う AI の公式ドキュメントで書式を確かめて案を作ります（WORKFLOW.md の 4 と 7）。
+
 ## claude.ai 用（`templates/claude-ai/`）
 
 | ファイル | 内容 | 貼る場所 |
@@ -30,3 +34,5 @@ AI エージェントを制御する指示のテンプレートを置くリポ�
 | `personal-instructions.md` | 個人設定 | 設定 → Claudeへの指示 |
 | `project-template.md` | プロジェクトの2欄の雛形 | プロジェクト →「何に取り組みますか？」「プロジェクトの指示」 |
 | `presets/spec-writing.md` | 仕様書作成プロジェクト用の、埋め済みの2欄 | 同上 |
+
+`personal-instructions.md` と `presets/` は、雛形ではなく埋め済みの文です。「テンプレートだけを置く」方針の例外として、ここを正本にしています。
