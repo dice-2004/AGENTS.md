@@ -6,9 +6,9 @@ AI エージェントを制御する指示のテンプレートを置くリポ�
 
 | ファイル | 内容 | 完成版の置き場所 |
 |---|---|---|
-| `AGENTS-template-jp.md` | AGENTS.md テンプレート v1（日本語） | 対象リポジトリ直下の `AGENTS.md` |
-| `AGENTS-template.md` | 同 v1（英語） | 同上 |
-| `AGENTS-template-v2-jp.md` | AGENTS.md テンプレート v2（たたき台・短縮版） | 同上 |
+| `AGENTS-template-jp.md` | AGENTS.md テンプレート v2（日本語・正本） | 対象リポジトリ直下の `AGENTS.md` |
+| `AGENTS-template.md` | 同 v2（英語） | 同上 |
+| `v1/` | 以前の版（参考用に保管） | |
 | `CLAUDE-template.md` | Claude Code に AGENTS.md を読ませる `CLAUDE.md` | 対象リポジトリ直下の `CLAUDE.md` |
 
 ## claude.ai 用（`templates/claude-ai/`）

@@ -6,5 +6,6 @@ Claude Code は CLAUDE.md を読み、AGENTS.md は読みません。AGENTS.md �
 @AGENTS.md
 
 ## Claude Code
-- [Claude Code だけに効かせたいルールがあれば書く。なければこの節ごと消す。]
+- この節が AGENTS.md と食い違うときは、Claude Code ではこの節を優先する。
+- [Claude Code だけに効かせたいルール。なければ、この節ごと消す。]
 ```
