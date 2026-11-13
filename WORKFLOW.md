@@ -45,7 +45,7 @@
 | `docs/progress.md` | 作業が複数回の会話や複数日にまたがるとき | `templates/repo-docs/progress-template.md` |
 | `docs/troubleshooting.md` | 環境やビルドでつまずきやすいとき。空の雛形だけ置いて、使いながら育てる | `templates/repo-docs/troubleshooting-template.md` |
 | claude.ai の2欄 | claude.ai プロジェクトで進めるとき | `templates/claude-ai/project-template.md`。用途が合う埋め済みの文が `templates/claude-ai/presets/` にあれば、それを土台にする |
-| `.claude/settings.json` とフック | Claude Code を使い、仕組みでも止めたい操作があるとき | `templates/agent-settings/claude-code-settings-template.md` |
+| `.claude/settings.json` と `.claude/hooks/` | Claude Code を使い、仕組みでも止めたい操作があるとき | `templates/agent-settings/claude-code-settings-template.md` |
 | `.codex/rules/` | Codex を使い、仕組みでも止めたい操作があるとき | `templates/agent-settings/codex-rules-template.md` |
 
 - 使わないファイルは作らない（読まれるたびにトークンを使い、古くなると誤った指示になるため）。
