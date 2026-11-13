@@ -19,6 +19,7 @@ AI エージェントを制御する指示のテンプレートを置くリポ�
 | ファイル | 内容 | 完成版の置き場所 |
 |---|---|---|
 | `context-template.md` | 背景・用語・設計方針 | 対象リポジトリの `docs/context.md` |
+| `spec-index-template.md` | 仕様書を複数のファイルに分けるときの入口（一覧と、分け方・参照の決まり） | 対象リポジトリの `docs/spec/README.md` |
 | `progress-template.md` | 進捗・未決事項・決定の履歴・検証の記録 | 対象リポジトリの `docs/progress.md` |
 | `troubleshooting-template.md` | よく起きる問題と対処 | 対象リポジトリの `docs/troubleshooting.md` |
 

@@ -8,6 +8,7 @@ How to use (delete this comment from the finished file)
 - After filling in, stay under 200 lines (the per-file guideline Claude Code gives). Codex stops reading once the combined size of the AGENTS.md files it loads exceeds 32 KiB (files under `~/.codex/` and in subdirectories count toward the total). Put procedures and detailed specs under docs/ and write only their location here.
 - Write rules as checkable actions. Example: not "test carefully" but "run npm test before committing".
 - When there are several stacks (such as frontend and backend), list the commands per stack. For something that does not exist yet (such as tests), keep the line and write "not set up yet" (so the AI does not search for a command that does not exist).
+- Specs do not have to be in one file. When they are split across files, make every spec reachable by following links from this file (write the entry point's path under "Layout"). Reference specs by path only, not with `@path` (an `@` import loads the whole file at every launch).
 - For rules that must never be broken (secret files, no push, etc.), also block them with permission settings or hooks, not only with text here (use the templates under `templates/agent-settings/`).
 -->
 
@@ -25,7 +26,7 @@ How to use (delete this comment from the finished file)
 
 ## Layout
 - `[e.g. src/api/]`: [role]
-- `[e.g. docs/]`: [specs to read before working]
+- `[e.g. docs/spec/README.md]`: [entry point to the specs. Follow it to the specs related to your work. If there is only one spec, write that file's path.]
 - `[e.g. docs/context.md]`: [background, terms, and design decisions. Read before work that touches design.]
 - [Outdated documents not to rely on, if any. e.g. The layout diagram in `README.md` is outdated; do not rely on it.]
 
@@ -34,7 +35,7 @@ How to use (delete this comment from the finished file)
 
 ## How to work
 - Write replies, comments, and commit messages in [Japanese].
-- When you start work on a module, read its spec (`[e.g. docs/spec/]`) if you have not read it in this session. Read it again after the conversation has been summarized or compacted.
+- When you start work on a module, read its spec if you have not read it in this session. Find the spec from the entry point under "Layout", and also read the specs it references that relate to your work. Read them again after the conversation has been summarized or compacted.
 - Ask before doing: [e.g. implementing a new feature that has no spec, adding files or modules, adding external packages, changing public interfaces, changing configuration or infrastructure]. Operations the request explicitly names need no confirmation. When asking, explain which part of which file you will change, why, and how.
 - Do without asking: [e.g. bug fixes inside existing functions, adding tests, fixing comments and names]. This includes fixing bugs caused by your own change that you find while verifying it.
 - If the same error is not fixed after [3] attempts, stop and report what you tried, the error log, and the current state.
@@ -49,6 +50,7 @@ How to use (delete this comment from the finished file)
 - Before reporting completion, pass the test, lint, and type check commands above. Do not report completion while they fail. Do not use skip options (`[e.g. --no-verify]`).
 - Separate failures that existed before your change, and checks you could not run because of the environment, from failures caused by your change. Report them as "pre-existing failure" and "not verified".
 - If a code change alters the spec (inputs, outputs, design), update the spec in the same change.
+- When you add, split, rename, or delete a spec, update the entry point's list and the links that reference that spec in the same change (a spec that cannot be reached is not read). If there is no entry point yet, link to the new spec from an existing spec, and propose creating an entry point and updating "Layout" in this file.
 - [Language and conventions. e.g. Python follows PEP 8 with required type hints. Formatter is Black.]
 - [Project-specific technical rules. e.g. Access the database only through `src/db/`.]
 - [Verification that commands cannot cover. e.g. After changing the UI, render the screen, check how it looks, and report which screens you checked and the result.]

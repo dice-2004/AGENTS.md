@@ -11,7 +11,7 @@
 - 対象リポジトリを読めるときは、質問する前に読む。見るもの：
   - 言語・フレームワークとそのバージョン（lock ファイル、設定ファイル）
   - ビルド・テスト・Lint・型チェックのコマンド（package.json、Makefile、CI の定義など）
-  - ディレクトリ構成と、既存のドキュメント（README、docs/）
+  - ディレクトリ構成と、既存のドキュメント（README、docs/）。仕様書が複数のファイルに分かれているときは、入口になるファイルがあるかと、ファイルどうしの参照
   - 既存の記録ファイル（作業ログ、CHANGELOG、タスク一覧など）と、内容が古くなっている文書
   - 既存の指示ファイル（AGENTS.md、CLAUDE.md、.claude/、.cursorrules など）。あれば、置き換えずにそれを土台にする。
 - 読めないときは、リポジトリの追加をユーザーに頼むか、3 で聞く。
@@ -42,6 +42,7 @@
 | `AGENTS.md` | リポジトリ用なら必ず | 日本語：`templates/agents-md/AGENTS-template-jp.md`、英語：`templates/agents-md/AGENTS-template.md` |
 | `CLAUDE.md` | Claude Code を使うとき | `templates/agents-md/CLAUDE-template.md` |
 | `docs/context.md` | 背景・用語・設計方針など、AGENTS.md に書くと長くなる前提知識があるとき | `templates/repo-docs/context-template.md` |
+| `docs/spec/README.md` | 仕様書が2つ以上あるとき、または増える見込みがあるとき。入口になるファイルが既にあれば、それを使う | `templates/repo-docs/spec-index-template.md` |
 | `docs/progress.md` | 作業が複数回の会話や複数日にまたがるとき | `templates/repo-docs/progress-template.md` |
 | `docs/troubleshooting.md` | 環境やビルドでつまずきやすいとき。空の雛形だけ置いて、使いながら育てる | `templates/repo-docs/troubleshooting-template.md` |
 | claude.ai の2欄 | claude.ai プロジェクトで進めるとき | `templates/claude-ai/project-template.md`。用途が合う埋め済みの文が `templates/claude-ai/presets/` にあれば、それを土台にする |
@@ -57,6 +58,8 @@
 - 分からない箇所は【未決: 〜】と書く。未決が残っている間は完成版と呼ばない。
 - 対象リポジトリに古くなった文書があれば、AGENTS.md の「構成」に「根拠にしない」と書く。
 - 補助ファイルを作ったら、AGENTS.md にそのパスと「いつ読む・いつ書く」を書く。書いていないファイルは読まれない。
+- 仕様書は1枚にまとめなくてよい。複数のファイルに分かれているときは、どの仕様書にも AGENTS.md からリンクをたどって行き着けるようにする。AGENTS.md には入口のパスだけを書き、仕様書を1つずつ並べない（増えるたびに AGENTS.md を直さずに済むため）。
+- 仕様書がまだない対象では、置き場所が決まっていれば AGENTS.md の「構成」にそのパスを書き、決まっていなければ【未決】にする。仕様書を作らない対象では、AGENTS.md から仕様書に関する行を消す。
 - 作らなかった補助ファイルを指している行は、AGENTS.md から消す。
 - 既存の CLAUDE.md に中身があるときは、どの AI にも共通するルールを AGENTS.md に移し、CLAUDE.md は `@AGENTS.md` の読み込みと Claude Code 専用の節だけにする。移した内容は、渡すときに伝える。
 - 作らなかった補助ファイルを指している行は、ほかの補助ファイルからも消す。
@@ -74,6 +77,7 @@ claude.ai 用の文を作るとき：
 - コマンドを実行できる環境なら、AGENTS.md に書いたコマンドを実際に実行して通ることを確かめる。実行していないものは、渡すときに「未確認」と伝える。
 - 高性能モデルのレビュワーに、聞き取った要件と成果物だけを渡す。見てもらう点：要件の抜け、ルール同士の矛盾、個人設定との矛盾、AI が守れない・確かめられないルール、埋め忘れ。
 - 権限設定・フックを作ったら、テンプレートにある確認用のコマンドで、止まるべき操作が止まることを確かめる。
+- 仕様書が複数のファイルに分かれているときは、リンク切れがないことと、入口の「対象」の範囲にあるどのファイルにも、入口からリンクをたどって行き着けることを確かめる。
 - 行数と大きさを確かめる。AGENTS.md は 200 行未満、Codex を使うなら読み込まれる AGENTS.md の合計で 32 KiB 以内。claude.ai の2欄は、それぞれの字数上限以内。
 
 ## 7. 渡す
