@@ -1,4 +1,4 @@
-# AGENTS.md Template v2
+# AGENTS.md Template
 
 <!--
 How to use (delete this comment from the finished file)
@@ -8,7 +8,7 @@ How to use (delete this comment from the finished file)
 - After filling in, stay under 200 lines (the per-file guideline Claude Code gives). Codex stops reading once the combined size of the AGENTS.md files it loads exceeds 32 KiB (files under `~/.codex/` and in subdirectories count toward the total). Put procedures and detailed specs under docs/ and write only their location here.
 - Write rules as checkable actions. Example: not "test carefully" but "run npm test before committing".
 - When there are several stacks (such as frontend and backend), list the commands per stack. For something that does not exist yet (such as tests), keep the line and write "not set up yet" (so the AI does not search for a command that does not exist).
-- For rules that must never be broken (secret files, no push, etc.), also block them with permission settings or hooks, not only with text here.
+- For rules that must never be broken (secret files, no push, etc.), also block them with permission settings or hooks, not only with text here (use the templates under `templates/agent-settings/`).
 -->
 
 # [Project name]

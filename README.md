@@ -8,9 +8,8 @@ AI エージェントを制御する指示のテンプレートを置くリポ�
 
 | ファイル | 内容 | 完成版の置き場所 |
 |---|---|---|
-| `AGENTS-template-jp.md` | AGENTS.md テンプレート v2（日本語・正本） | 対象リポジトリ直下の `AGENTS.md` |
-| `AGENTS-template.md` | 同 v2（英語） | 同上 |
-| `v1/` | 以前の版（参考用に保管） | |
+| `AGENTS-template-jp.md` | AGENTS.md テンプレート（日本語・正本） | 対象リポジトリ直下の `AGENTS.md` |
+| `AGENTS-template.md` | 同（英語。日本語版と同じ内容） | 同上 |
 | `CLAUDE-template.md` | Claude Code に AGENTS.md を読ませる `CLAUDE.md` | 対象リポジトリ直下の `CLAUDE.md` |
 
 ## リポジトリの補助ファイル（`templates/repo-docs/`）
@@ -23,9 +22,14 @@ AI エージェントを制御する指示のテンプレートを置くリポ�
 | `progress-template.md` | 進捗・未決事項・決定の履歴・検証の記録 | 対象リポジトリの `docs/progress.md` |
 | `troubleshooting-template.md` | よく起きる問題と対処 | 対象リポジトリの `docs/troubleshooting.md` |
 
-## 権限設定・フック
+## 権限設定・フック（`templates/agent-settings/`）
 
-テンプレートは未整備です。必要な対象では、使う AI の公式ドキュメントで書式を確かめて案を作ります（WORKFLOW.md の 4 と 7）。
+AGENTS.md のルールは助言なので、破られては困る操作は仕組みでも止めます。
+
+| ファイル | 内容 | 完成版の置き場所 |
+|---|---|---|
+| `claude-code-settings-template.md` | Claude Code の権限設定と、push を見張るフック | 対象リポジトリの `.claude/settings.json`、`.claude/hooks/` |
+| `codex-rules-template.md` | Codex の既定の守りと、コマンドのルール | 対象リポジトリの `.codex/rules/` |
 
 ## claude.ai 用（`templates/claude-ai/`）
 
