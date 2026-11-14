@@ -37,6 +37,5 @@ AGENTS.md のルールは助言なので、破られては困る操作は仕組�
 |---|---|---|
 | `personal-instructions.md` | 個人設定 | 設定 → Claudeへの指示 |
 | `project-template.md` | プロジェクトの2欄の雛形 | プロジェクト →「何に取り組みますか？」「プロジェクトの指示」 |
-| `presets/spec-writing.md` | 仕様書作成プロジェクト用の、埋め済みの2欄 | 同上 |
 
-`personal-instructions.md` と `presets/` は、雛形ではなく埋め済みの文です。「テンプレートだけを置く」方針の例外として、ここを正本にしています。
+`personal-instructions.md` は、雛形ではなく埋め済みの文です。「テンプレートだけを置く」方針の例外として、ここを正本にしています。
