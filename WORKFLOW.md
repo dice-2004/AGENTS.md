@@ -44,7 +44,7 @@
 | `docs/context.md` | 背景・用語・設計方針など、AGENTS.md に書くと長くなる前提知識があるとき | `templates/repo-docs/context-template.md` |
 | `docs/progress.md` | 作業が複数回の会話や複数日にまたがるとき | `templates/repo-docs/progress-template.md` |
 | `docs/troubleshooting.md` | 環境やビルドでつまずきやすいとき。空の雛形だけ置いて、使いながら育てる | `templates/repo-docs/troubleshooting-template.md` |
-| claude.ai の2欄 | claude.ai プロジェクトで進めるとき | `templates/claude-ai/project-template.md`。用途が合う埋め済みの文が `templates/claude-ai/presets/` にあれば、それを土台にする |
+| claude.ai の2欄 | claude.ai プロジェクトで進めるとき | `templates/claude-ai/project-template.md` |
 | `.claude/settings.json` と `.claude/hooks/` | Claude Code を使い、仕組みでも止めたい操作があるとき | `templates/agent-settings/claude-code-settings-template.md` |
 | `.codex/rules/` | Codex を使い、仕組みでも止めたい操作があるとき | `templates/agent-settings/codex-rules-template.md` |
 
@@ -57,9 +57,8 @@
 - 分からない箇所は【未決: 〜】と書く。未決が残っている間は完成版と呼ばない。
 - 対象リポジトリに古くなった文書があれば、AGENTS.md の「構成」に「根拠にしない」と書く。
 - 補助ファイルを作ったら、AGENTS.md にそのパスと「いつ読む・いつ書く」を書く。書いていないファイルは読まれない。
-- 作らなかった補助ファイルを指している行は、AGENTS.md から消す。
+- 作らなかった補助ファイルを指している行は、AGENTS.md とほかの補助ファイルから消す。
 - 既存の CLAUDE.md に中身があるときは、どの AI にも共通するルールを AGENTS.md に移し、CLAUDE.md は `@AGENTS.md` の読み込みと Claude Code 専用の節だけにする。移した内容は、渡すときに伝える。
-- 作らなかった補助ファイルを指している行は、ほかの補助ファイルからも消す。
 - 個人設定のうち、そのリポジトリでも効かせたいルールは AGENTS.md に書く（Codex とローカルの Claude Code には個人設定が届かないため）。
 - 個人設定（`templates/claude-ai/personal-instructions.md`）と食い違うルールを入れない。違う挙動にしたいときは、その差分と優先する旨を書く。
 - AGENTS.md の Git 運用などを個人設定と違う挙動にしたときは、渡すときにその差分を伝える。
